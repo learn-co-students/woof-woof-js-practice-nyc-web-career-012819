@@ -38,22 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
         `
         let button = dogInfoBar.querySelector('button');
         button.addEventListener('click', function(e) {
-          console.log(e)
+          // console.log(e)
           if(dog.isGoodDog === true) {
           fetch(`http://localhost:3000/pups/${dog.id}`, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
               "Content-Type" : "application/json"
             },
-            body: JSON.stringify({name: dog.name, id: dog.id, image: dog.image, isGoodDog: false})
+            body: JSON.stringify({isGoodDog: false})
           })
         } else {
           fetch(`http://localhost:3000/pups/${dog.id}`, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
               "Content-Type" : "application/json"
             },
-            body: JSON.stringify({name: dog.name, id: dog.id, image: dog.image, isGoodDog: true})
+            body: JSON.stringify({isGoodDog: true})
           })
         }
 
